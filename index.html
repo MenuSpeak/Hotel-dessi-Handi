@@ -6,6 +6,7 @@
   <title>Resta Dessi Handi</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    /* Your existing CSS remains the same */
     :root {
       --bg: #0b0b0d;
       --surface: #0f1114;
@@ -35,29 +36,28 @@
     }
 
     body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-      body {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    /* Background image layer */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('bg.png') no-repeat center center/cover;
+      filter: grayscale(100%);
+      opacity: 0.5;
+      z-index: -1;
+    }
 
-/* Background image layer */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('bg.png') no-repeat center center/cover;
-  filter: grayscale(100%);
-  opacity: 0.5;
-  z-index: -1;
-}
-
+    body {
       background: radial-gradient(1200px 600px at 10% 10%, rgba(212, 175, 55, 0.06), transparent 6%),
                   radial-gradient(1000px 500px at 95% 90%, rgba(255, 204, 102, 0.04), transparent 8%),
                   var(--bg);
@@ -775,8 +775,6 @@ body::before {
     .site-logo {
       width: 400px;
       height: 200px;
-
-      
       object-fit: contain;
       margin-left: 10px;
       border-radius: 8px; /* make corners slightly round */
@@ -863,8 +861,7 @@ body::before {
       <div class="menu-head">
         <div>
           <h2 class="title">
-            <!-- Hotel Dessi Handi @Love Food's  -->
-          <img src="logo1.png" alt="Logo" class="site-logo">
+            <img src="logo1.png" alt="Logo" class="site-logo">
           </h2>
 
           <div class="subtitle">  Hygienic Healthy and Fresh Food <br> • Veg — Non Veg </div>
@@ -882,26 +879,23 @@ body::before {
 
           <div class="tabs" role="tablist">
             <button class="tab active" data-cat="all">All</button>
-        <button class="tab" data-cat="Extra">Extra</button>
-        <button class="tab" data-cat="चिकन (Chicken)">Chicken</button>
-        <button class="tab" data-cat="ड्रिंक (Drink)">Drink</button>
-        <button class="tab" data-cat="BABY CORN">Baby Corn</button>
-        <button class="tab" data-cat="ROLL">Roll</button>
-        <button class="tab" data-cat="ROTI">Roti</button>
-        <button class="tab" data-cat="SALAD">Salad</button>
-        <button class="tab" data-cat="RICE">Rice</button>
-        <button class="tab" data-cat="CHOWMEIN">Chowmein</button>
-        <button class="tab" data-cat="DESI HANDI SPECIAL">Desi Handi Special</button>
-        <button class="tab" data-cat="ब्रेकफास्ट (Breakfast)">Breakfast</button>
-        <button class="tab" data-cat="मोमोज (Momos)">Momos</button>
-        <button class="tab" data-cat="स्टार्टर (Starters)">Starters</button>
-        <button class="tab" data-cat="Kabab's">Kabab's</button>
-        <button class="tab" data-cat="Veg Starter">Veg Starter</button>
-        <!-- <button class="tab" data-cat="Chinese">Chinese</button>
-        <button class="tab" data-cat="Indian Gravy">Indian Gravy</button>
-        <button class="tab" data-cat="Pakoda's">Pakoda's</button>
-        <button class="tab" data-cat="Biryani">Biryani</button>
-        <button class="tab" data-cat="Chineese">Chineese</button> -->
+            <button class="tab" data-cat="ब्रेकफास्ट (Breakfast)">Breakfast</button>
+            <button class="tab" data-cat="स्नैक (Snack)">Snack</button>
+            <button class="tab" data-cat="पापड़ (Papad)">Papad</button>
+            <button class="tab" data-cat="चिकन (Chicken)">Chicken</button>
+            <button class="tab" data-cat="ड्रिंक (Drink)">Drink</button>
+            <button class="tab" data-cat="BABY CORN">Baby Corn</button>
+            <button class="tab" data-cat="ROLL">Roll</button>
+            <button class="tab" data-cat="ROTI">Roti</button>
+            <button class="tab" data-cat="SALAD">Salad</button>
+            <button class="tab" data-cat="RICE">Rice</button>
+            <button class="tab" data-cat="CHOWMEIN">Chowmein</button>
+            <button class="tab" data-cat="DESI HANDI SPECIAL">Desi Handi Special</button>
+            <button class="tab" data-cat="मोमोज (Momos)">Momos</button>
+            <button class="tab" data-cat="स्टार्टर (Starters)">Starters</button>
+            <button class="tab" data-cat="Kabab's">Kabab's</button>
+            <button class="tab" data-cat="Veg Starter">Veg Starter</button>
+            <button class="tab" data-cat="Extra">Extra</button>
           </div>
         </div>
       </div>
@@ -965,174 +959,163 @@ body::before {
   </div>
 
   <script>
-    const data =  [
-      // Starters
-  {"id":1,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ड्राय / Chicken Chilli Dry","price":"₹170","portion":"full","desc":"Crispy chicken tossed with spicy chilli sauce, onions, and capsicum.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-dry.jpeg"},
-  {"id":2,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ड्राय (Half)","price":"₹110","portion":"half","desc":"Crispy chicken tossed with spicy chilli sauce, onions, and capsicum.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-dry.jpeg"},
-  
-  {"id":3,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ग्रेवी / Chicken Chilli Gravy","price":"₹170","portion":"full","desc":"Juicy chicken pieces cooked in flavorful chilli gravy with vegetables.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-gravy.jpeg"},
-  {"id":4,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ग्रेवी (Half)","price":"₹110","portion":"half","desc":"Juicy chicken pieces cooked in flavorful chilli gravy with vegetables.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-gravy.jpeg"},
-  
-  {"id":5,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ड्राय / Veg Manchurian Dry","price":"₹120","portion":"full","desc":"Crispy vegetable balls tossed in spicy Manchurian sauce.","tags":["Veg","Starters"],"img":"img/veg-manchurian-dry.jpeg"},
-  {"id":6,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ड्राय (Half)","price":"₹80","portion":"half","desc":"Crispy vegetable balls tossed in spicy Manchurian sauce.","tags":["Veg","Starters"],"img":"img/veg-manchurian-dry.jpeg"},
-  
-  {"id":7,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ग्रेवी / Veg Manchurian Gravy","price":"₹120","portion":"full","desc":"Soft vegetable balls served in a thick Manchurian gravy.","tags":["Veg","Starters"],"img":"img/veg-manchurian-gravy.jpeg"},
-  {"id":8,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ग्रेवी (Half)","price":"₹80","portion":"half","desc":"Soft vegetable balls served in a thick Manchurian gravy.","tags":["Veg","Starters"],"img":"img/veg-manchurian-gravy.jpeg"},
-  
-  {"id":9,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ड्राय / Soya Manchurian Dry","price":"₹100","portion":"full","desc":"Soya chunks fried and tossed in spicy Indo-Chinese sauce.","tags":["Veg","Starters"],"img":"img/soya-manchurian-dry.jpeg"},
-  {"id":10,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ड्राय (Half)","price":"₹70","portion":"half","desc":"Soya chunks fried and tossed in spicy Indo-Chinese sauce.","tags":["Veg","Starters"],"img":"img/soya-manchurian-dry.jpeg"},
-  
-  {"id":11,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ग्रेवी / Soya Manchurian Gravy","price":"₹100","portion":"full","desc":"Soya balls cooked in rich Manchurian gravy with Chinese spices.","tags":["Veg","Starters"],"img":"img/soya-manchurian-gravy.jpeg"},
-  {"id":12,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ग्रेवी (Half)","price":"₹70","portion":"half","desc":"Soya balls cooked in rich Manchurian gravy with Chinese spices.","tags":["Veg","Starters"],"img":"img/soya-manchurian-gravy.jpeg"},
-  
-  {"id":13,"cat":"स्टार्टर (Starters)","name":"सोया चिली ड्राय / Soya Chilli Dry","price":"₹120","portion":"full","desc":"Crispy soya chunks tossed with spicy chilli sauce and veggies.","tags":["Veg","Starters"],"img":"img/soya-chilli-dry.jpeg"},
-  {"id":14,"cat":"स्टार्टर (Starters)","name":"सोया चिली ड्राय (Half)","price":"₹80","portion":"half","desc":"Crispy soya chunks tossed with spicy chilli sauce and veggies.","tags":["Veg","Starters"],"img":"img/soya-chilli-dry.jpeg"},
-  
-  {"id":15,"cat":"स्टार्टर (Starters)","name":"सोया चिली ग्रेवी / Soya Chilli Gravy","price":"₹120","portion":"full","desc":"Soft soya pieces cooked in thick spicy chilli gravy.","tags":["Veg","Starters"],"img":"img/soya-chilli-gravy.jpeg"},
-  {"id":16,"cat":"स्टार्टर (Starters)","name":"सोया चिली ग्रेवी (Half)","price":"₹80","portion":"half","desc":"Soft soya pieces cooked in thick spicy chilli gravy.","tags":["Veg","Starters"],"img":"img/soya-chilli-gravy.jpeg"},
+    // Reorganized data with proper IDs and categories
+    const data = [
+      // Breakfast (ID 1-8)
+      {"id":1,"cat":"ब्रेकफास्ट (Breakfast)","name":"पोहा / Poha","price":"₹50","desc":"Delicious and light breakfast poha made with onions and peanuts.","tags":["Breakfast","Veg"],"img":"img/poha.jpeg"},
+      {"id":2,"cat":"ब्रेकफास्ट (Breakfast)","name":"पुरी सब्जी / Puri Sabji","price":"₹7 per piece","desc":"Crispy puris served with tasty vegetable curry.","tags":["Breakfast","Veg"],"img":"img/puri-sabji.jpeg"},
+      {"id":3,"cat":"ब्रेकफास्ट (Breakfast)","name":"ब्रेड ऑमलेट / Bread Omelette","price":"₹30","desc":"Toasted bread served with a fluffy omelette.","tags":["Breakfast","Egg"],"img":"img/bread-omelette.jpeg"},
+      {"id":4,"cat":"ब्रेकफास्ट (Breakfast)","name":"ऑमलेट / Omelette","price":"₹25","desc":"Soft and fresh omelette prepared with eggs and mild spices.","tags":["Breakfast","Egg"],"img":"img/omelette.jpeg"},
+      {"id":5,"cat":"ब्रेकफास्ट (Breakfast)","name":"ब्रेड बटर / Bread Butter","price":"₹30","desc":"Toasted bread generously spread with butter.","tags":["Breakfast","Veg"],"img":"img/bread-butter.jpeg"},
+      {"id":6,"cat":"ब्रेकफास्ट (Breakfast)","name":"ब्रेड जॅम / Bread Jam","price":"₹30","desc":"Toasted bread served with sweet fruit jam.","tags":["Breakfast","Veg"],"img":"img/bread-jam.jpeg"},
+      {"id":7,"cat":"ब्रेकफास्ट (Breakfast)","name":"क्लब कचोरी / Club Kachori","price":"₹10 per piece","desc":"Mini stuffed kachoris served hot with aloo sabji.","tags":["Breakfast","Veg"],"img":"img/club-kachori.jpeg"},
+      {"id":8,"cat":"ब्रेकफास्ट (Breakfast)","name":"समोसा / Samosa","price":"₹8 per piece","desc":"Crispy fried samosa filled with spicy potato mixture.","tags":["Breakfast","Veg","Snacks"],"img":"img/samosa.jpeg"},
 
-  // Chicken - Full and Half pairs
-  {"id":17,"cat":"चिकन (Chicken)","name":"चिकन दो प्याजा (Chicken Do Payaza)","price":"₹150","portion":"full","desc":"Chicken curry cooked with onions and rich gravy.","tags":["Chicken"],"img":"img/chicken-do-payaza.jpeg"},
-  {"id":18,"cat":"चिकन (Chicken)","name":"चिकन दो प्याजा (Half)","price":"₹100","portion":"half","desc":"Chicken curry cooked with onions and rich gravy.","tags":["Chicken"],"img":"img/chicken-do-payaza.jpeg"},
-  
-  {"id":19,"cat":"चिकन (Chicken)","name":"चिकन कड़ाही (Chicken Kadhai)","price":"₹250","portion":"full","desc":"Spicy chicken cooked in kadai with Indian masala.","tags":["Chicken"],"img":"img/chicken-kadhai.jpeg"},
-  {"id":20,"cat":"चिकन (Chicken)","name":"चिकन कड़ाही (Half)","price":"₹130","portion":"half","desc":"Spicy chicken cooked in kadai with Indian masala.","tags":["Chicken"],"img":"img/chicken-kadhai.jpeg"},
-  
-  {"id":21,"cat":"चिकन (Chicken)","name":"बटर चिकन (Chicken Butter)","price":"₹240","portion":"full","desc":"Creamy butter chicken with a tomato-based gravy.","tags":["Chicken"],"img":"img/chicken-butter.jpeg"},
-  {"id":22,"cat":"चिकन (Chicken)","name":"बटर चिकन (Half)","price":"₹150","portion":"half","desc":"Creamy butter chicken with a tomato-based gravy.","tags":["Chicken"],"img":"img/chicken-butter.jpeg"},
-  
-  {"id":23,"cat":"चिकन (Chicken)","name":"चिकन कस्सा (Chicken Kassa)","price":"₹200","portion":"full","desc":"Thick and spicy chicken curry with traditional spices.","tags":["Chicken"],"img":"img/chicken-kassa.jpeg"},
-  {"id":24,"cat":"चिकन (Chicken)","name":"चिकन कस्सा (Half)","price":"₹130","portion":"half","desc":"Thick and spicy chicken curry with traditional spices.","tags":["Chicken"],"img":"img/chicken-kassa.jpeg"},
-  
-  {"id":25,"cat":"चिकन (Chicken)","name":"चिकन स्पाइस (Chicken Spice)","price":"₹200","portion":"full","desc":"Hot and spicy chicken cooked with masala blend.","tags":["Chicken"],"img":"img/chicken-spice.jpeg"},
-  {"id":26,"cat":"चिकन (Chicken)","name":"चिकन स्पाइस (Half)","price":"₹130","portion":"half","desc":"Hot and spicy chicken cooked with masala blend.","tags":["Chicken"],"img":"img/chicken-spice.jpeg"},
-  
-  {"id":27,"cat":"चिकन (Chicken)","name":"चिकन ब्लैक पेपर (Chicken Black Paper)","price":"₹200","portion":"full","desc":"Peppery chicken dish rich in flavor and aroma.","tags":["Chicken"],"img":"img/chicken-black-paper.jpeg"},
-  {"id":28,"cat":"चिकन (Chicken)","name":"चिकन ब्लैक पेपर (Half)","price":"₹130","portion":"half","desc":"Peppery chicken dish rich in flavor and aroma.","tags":["Chicken"],"img":"img/chicken-black-paper.jpeg"},
-  
-  {"id":29,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोन) (Chicken Chilli Bone)","price":"₹160","portion":"full","desc":"Boneless chicken chilli tossed with spicy sauce.","tags":["Chicken"],"img":"img/chicken-chilli-b.jpeg"},
-  {"id":30,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोन) (Half)","price":"₹110","portion":"half","desc":"Boneless chicken chilli tossed with spicy sauce.","tags":["Chicken"],"img":"img/chicken-chilli-b.jpeg"},
-  
-  {"id":31,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोनलेस) (Chicken Chilli Bonless)","price":"₹240","portion":"full","desc":"Chicken chilli with boneless and leg pieces mix.","tags":["Chicken"],"img":"img/chicken-chilli-bl.jpeg"},
-  {"id":32,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोनलेस) (Half)","price":"₹130","portion":"half","desc":"Chicken chilli with boneless and leg pieces mix.","tags":["Chicken"],"img":"img/chicken-chilli-bl.jpeg"},
-  
-  {"id":33,"cat":"चिकन (Chicken)","name":"तवा चिकन (Tawa Chicken)","price":"₹200","portion":"full","desc":"Fried chicken cooked with tawa-style masala.","tags":["Chicken"],"img":"img/tawa-chicken.jpeg"},
-  {"id":34,"cat":"चिकन (Chicken)","name":"तवा चिकन (Half)","price":"₹130","portion":"half","desc":"Fried chicken cooked with tawa-style masala.","tags":["Chicken"],"img":"img/tawa-chicken.jpeg"},
-  
-  {"id":35,"cat":"चिकन (Chicken)","name":"कलेजी फ्राय (Kaleji Fry)","price":"₹160","portion":"full","desc":"Fried chicken liver cooked with spicy masala.","tags":["Chicken"],"img":"img/kaleji-fry.jpeg"},
-  {"id":36,"cat":"चिकन (Chicken)","name":"कलेजी फ्राय (Half)","price":"₹110","portion":"half","desc":"Fried chicken liver cooked with spicy masala.","tags":["Chicken"],"img":"img/kaleji-fry.jpeg"},
-  
-  {"id":37,"cat":"चिकन (Chicken)","name":"कलेजी मसाला (Kaleji Masala)","price":"₹200","portion":"full","desc":"Spicy kaleji masala curry with rich gravy.","tags":["Chicken"],"img":"img/kaleji-masala.jpeg"},
-  {"id":38,"cat":"चिकन (Chicken)","name":"कलेजी मसाला (Half)","price":"₹130","portion":"half","desc":"Spicy kaleji masala curry with rich gravy.","tags":["Chicken"],"img":"img/kaleji-masala.jpeg"},
-  
-  {"id":39,"cat":"चिकन (Chicken)","name":"फ्राइड टांगड़ी (Fried Tangri)","price":"₹150","portion":"full","desc":"Juicy fried chicken drumsticks with spicy flavor.","tags":["Chicken"],"img":"img/fried-tangri.jpeg"},
-  {"id":40,"cat":"चिकन (Chicken)","name":"फ्राइड टांगड़ी (Half)","price":"₹100","portion":"half","desc":"Juicy fried chicken drumsticks with spicy flavor.","tags":["Chicken"],"img":"img/fried-tangri.jpeg"},
-  
-  {"id":41,"cat":"चिकन (Chicken)","name":"चिकन लॉलिपॉप (Chicken Lolipop)","price":"₹250","portion":"full","desc":"Crispy chicken lolipops served with spicy chutney.","tags":["Chicken"],"img":"img/chicken-lolipop.jpeg"},
-  {"id":42,"cat":"चिकन (Chicken)","name":"चिकन लॉलिपॉप (Half)","price":"₹160","portion":"half","desc":"Crispy chicken lolipops served with spicy chutney.","tags":["Chicken"],"img":"img/chicken-lolipop.jpeg"},
-      // Drinks
-      {"id":22,"cat":"ड्रिंक (Drink)","name":"प्यूरिफाइड वॉटर (Purified Water)","price":"₹20","desc":"Fresh purified bottled water.","tags":["Drink"],"img":"img/water.jpeg"},
-      {"id":23,"cat":"ड्रिंक (Drink)","name":"चाय (Tea)","price":"₹25","desc":"Hot and refreshing Indian tea.","tags":["Drink"],"img":"img/tea.jpeg"},
-      {"id":24,"cat":"ड्रिंक (Drink)","name":"कॉफी (Coffee)","price":"₹35","desc":"Freshly brewed coffee with rich aroma.","tags":["Drink"],"img":"img/coffee.jpeg"},
-      {"id":25,"cat":"ड्रिंक (Drink)","name":"कोल्ड ड्रिंक (Cold Drink)","price":"₹20/On MRP","desc":"Chilled carbonated soft drink.","tags":["Drink"],"img":"img/cold-drink.jpeg"},
-      {"id":26,"cat":"ड्रिंक (Drink)","name":"लस्सी (Lassi)","price":"₹65","desc":"Refreshing sweet curd-based drink.","tags":["Drink"],"img":"img/lassi.jpeg"},
-      {"id":27,"cat":"ड्रिंक (Drink)","name":"वेज सूप (Veg Soup)","price":"₹80","desc":"Hot vegetable soup full of flavor.","tags":["Drink","Soup"],"img":"img/veg-soup.jpeg"},
-      {"id":28,"cat":"ड्रिंक (Drink)","name":"एग सूप (Egg Soup)","price":"₹105","desc":"Protein-rich egg soup with spices.","tags":["Drink","Soup"],"img":"img/egg-soup.jpeg"},
+      // Snacks (ID 9-14)
+      {"id":9,"cat":"स्नैक (Snack)","name":"Onion Pakoda (प्याज पकोड़ा)","desc":"Crispy onion fritters","price":"₹100 (5 pcs)","tags":["Pakoda","Snack"],"img":"img/onion-pakoda.jpeg"},
+      {"id":10,"cat":"स्नैक (Snack)","name":"Chana Dal Pak (चना दाल पक)","desc":"Crispy chana dal fritters","price":"₹110 (5 pcs)","tags":["Pakoda","Chana Dal"],"img":"img/chana dal pakoda.jpg"},
+      {"id":11,"cat":"स्नैक (Snack)","name":"Chana Fry (चना फ्राई)","desc":"Fried spicy chana","price":"₹100","tags":["Snack","Chana"],"img":"img/chana-fry.jpeg"},
+      {"id":12,"cat":"स्नैक (Snack)","name":"Spicy Masala corn chaat","price":"₹50","desc":"spicy masala corn chaat","tags":["Extra"],"img":"img/5.jpg"},
+      {"id":13,"cat":"स्नैक (Snack)","name":"प्यूरिफाइड वॉटर (Purified Water)","price":"₹20","desc":"Fresh purified bottled water.","tags":["Drink"],"img":"img/water.jpeg"},
+      {"id":14,"cat":"स्नैक (Snack)","name":"कोल्ड ड्रिंक (Cold Drink)","price":"₹20/On MRP","desc":"Chilled carbonated soft drink.","tags":["Drink"],"img":"img/cold-drink.jpeg"},
 
-      // Baby Corn
-      {"id":29,"cat":"BABY CORN","name":"Baby Corn Chilli (बेबी कॉर्न चिली)","desc":"Spicy baby corn tossed with chillies and sauce","price":"₹150","tags":["Baby Corn","Spicy"],"img":"img/baby-corn-chilli.jpeg"},
-      {"id":30,"cat":"BABY CORN","name":"Baby Corn Crispy (बेबी कॉर्न क्रिस्पी)","desc":"Crispy fried baby corn","price":"₹170","tags":["Baby Corn","Crispy"],"img":"img/baby-corn-crispy.jpeg"},
-      {"id":31,"cat":"BABY CORN","name":"Baby Corn Masala (बेबी कॉर्न मसाला)","desc":"Baby corn cooked in flavorful masala gravy","price":"₹200","tags":["Baby Corn","Masala"],"img":"img/baby-corn-masala.jpeg"},
+      // Papad (ID 15-16)
+      {"id":15,"cat":"पापड़ (Papad)","name":"Papad Roasted (पापड़ रोस्टेड)","desc":"Crispy roasted papad","price":"₹10","tags":["Papad","Roasted"],"img":"img/papad-roasted.jpeg"},
+      {"id":16,"cat":"पापड़ (Papad)","name":"Papad Fry (पापड़ फ्राई)","desc":"Fried papad","price":"₹15","tags":["Papad","Fried"],"img":"img/papad-fry.jpeg"},
 
-      // Rolls
-      {"id":32,"cat":"ROLL","name":"Chicken Egg Roll (चिकन एग रोल)","desc":"Chicken and egg stuffed roll","price":"₹100","tags":["Roll","Chicken","Egg"],"img":"img/chicken-egg-roll.jpeg"},
-      {"id":33,"cat":"ROLL","name":"Mushroom Roll (मशरूम रोल)","desc":"Mushroom stuffed roll","price":"₹100","tags":["Roll","Mushroom"],"img":"img/mushroom-roll.jpeg"},
-      {"id":34,"cat":"ROLL","name":"एग रोल (Egg Roll)","price":"₹60","desc":"Placeholder description.","tags":["Egg","Roll"],"img":"img/egg-roll.jpeg"},
-      {"id":35,"cat":"ROLL","name":"चिकन रोल (Chicken Roll)","price":"₹80","desc":"Placeholder description.","tags":["Chicken","Roll"],"img":"img/chicken-roll.jpeg"},
-      {"id":36,"cat":"ROLL","name":"चिकन टिक्का रोल (Chicken Tikka Roll)","price":"₹120","desc":"Placeholder description.","tags":["Chicken","Roll"],"img":"img/chicken-tikka-roll.jpeg"},
-      {"id":37,"cat":"ROLL","name":"पनीर रोल (Paneer Roll)","price":"₹110","desc":"Placeholder description.","tags":["Roll","Paneer"],"img":"img/paneer-roll.jpeg"},
-      {"id":38,"cat":"ROLL","name":"वेज रोल (Veg Roll)","price":"₹50","desc":"Placeholder description.","tags":["Roll","Veg"],"img":"img/veg-roll.jpeg"},
-      {"id":39,"cat":"ROLL","name":"पनीर चिल्ली रोल (Paneer Chilli Roll)","price":"₹120","desc":"Placeholder description.","tags":["Roll","Paneer"],"img":"img/paneer-chilli-roll.jpeg"},
-      {"id":40,"cat":"ROLL","name":"मंचूरियन रोल (Manchurian Roll)","price":"₹80","desc":"Placeholder description.","tags":["Roll","Manchurian"],"img":"img/manchurian-roll.jpeg"},
+      // Starters (ID 17-32)
+      {"id":17,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ड्राय / Chicken Chilli Dry","price":"₹170","portion":"full","desc":"Crispy chicken tossed with spicy chilli sauce, onions, and capsicum.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-dry.jpeg"},
+      {"id":18,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ड्राय (Half)","price":"₹110","portion":"half","desc":"Crispy chicken tossed with spicy chilli sauce, onions, and capsicum.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-dry.jpeg"},
+      {"id":19,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ग्रेवी / Chicken Chilli Gravy","price":"₹170","portion":"full","desc":"Juicy chicken pieces cooked in flavorful chilli gravy with vegetables.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-gravy.jpeg"},
+      {"id":20,"cat":"स्टार्टर (Starters)","name":"चिकन चिली ग्रेवी (Half)","price":"₹110","portion":"half","desc":"Juicy chicken pieces cooked in flavorful chilli gravy with vegetables.","tags":["Non-Veg","Starters"],"img":"img/chicken-chilli-gravy.jpeg"},
+      {"id":21,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ड्राय / Veg Manchurian Dry","price":"₹120","portion":"full","desc":"Crispy vegetable balls tossed in spicy Manchurian sauce.","tags":["Veg","Starters"],"img":"img/veg-manchurian-dry.jpeg"},
+      {"id":22,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ड्राय (Half)","price":"₹80","portion":"half","desc":"Crispy vegetable balls tossed in spicy Manchurian sauce.","tags":["Veg","Starters"],"img":"img/veg-manchurian-dry.jpeg"},
+      {"id":23,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ग्रेवी / Veg Manchurian Gravy","price":"₹120","portion":"full","desc":"Soft vegetable balls served in a thick Manchurian gravy.","tags":["Veg","Starters"],"img":"img/veg-manchurian-gravy.jpeg"},
+      {"id":24,"cat":"स्टार्टर (Starters)","name":"वेज मंचुरियन ग्रेवी (Half)","price":"₹80","portion":"half","desc":"Soft vegetable balls served in a thick Manchurian gravy.","tags":["Veg","Starters"],"img":"img/veg-manchurian-gravy.jpeg"},
+      {"id":25,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ड्राय / Soya Manchurian Dry","price":"₹100","portion":"full","desc":"Soya chunks fried and tossed in spicy Indo-Chinese sauce.","tags":["Veg","Starters"],"img":"img/soya-manchurian-dry.jpeg"},
+      {"id":26,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ड्राय (Half)","price":"₹70","portion":"half","desc":"Soya chunks fried and tossed in spicy Indo-Chinese sauce.","tags":["Veg","Starters"],"img":"img/soya-manchurian-dry.jpeg"},
+      {"id":27,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ग्रेवी / Soya Manchurian Gravy","price":"₹100","portion":"full","desc":"Soya balls cooked in rich Manchurian gravy with Chinese spices.","tags":["Veg","Starters"],"img":"img/soya-manchurian-gravy.jpeg"},
+      {"id":28,"cat":"स्टार्टर (Starters)","name":"सोया मंचुरियन ग्रेवी (Half)","price":"₹70","portion":"half","desc":"Soya balls cooked in rich Manchurian gravy with Chinese spices.","tags":["Veg","Starters"],"img":"img/soya-manchurian-gravy.jpeg"},
+      {"id":29,"cat":"स्टार्टर (Starters)","name":"सोया चिली ड्राय / Soya Chilli Dry","price":"₹120","portion":"full","desc":"Crispy soya chunks tossed with spicy chilli sauce and veggies.","tags":["Veg","Starters"],"img":"img/soya-chilli-dry.jpeg"},
+      {"id":30,"cat":"स्टार्टर (Starters)","name":"सोया चिली ड्राय (Half)","price":"₹80","portion":"half","desc":"Crispy soya chunks tossed with spicy chilli sauce and veggies.","tags":["Veg","Starters"],"img":"img/soya-chilli-dry.jpeg"},
+      {"id":31,"cat":"स्टार्टर (Starters)","name":"सोया चिली ग्रेवी / Soya Chilli Gravy","price":"₹120","portion":"full","desc":"Soft soya pieces cooked in thick spicy chilli gravy.","tags":["Veg","Starters"],"img":"img/soya-chilli-gravy.jpeg"},
+      {"id":32,"cat":"स्टार्टर (Starters)","name":"सोया चिली ग्रेवी (Half)","price":"₹80","portion":"half","desc":"Soft soya pieces cooked in thick spicy chilli gravy.","tags":["Veg","Starters"],"img":"img/soya-chilli-gravy.jpeg"},
 
-      // Roti
-      {"id":41,"cat":"ROTI","name":"Roti (रोटी)","desc":"Plain roti","price":"₹15","tags":["Roti","Bread"],"img":"img/roti.jpeg"},
-      {"id":42,"cat":"ROTI","name":"Paratha (पराठा)","desc":"Plain paratha Oil","price":"₹25","tags":["Paratha","Bread"],"img":"img/paratha.jpeg"},
-      {"id":43,"cat":"ROTI","name":"Paratha / Butter (पराठा Butter )","desc":"Plain paratha (full)","price":"₹30","tags":["Paratha","Bread"],"img":"img/paratha.jpeg"},
-      {"id":44,"cat":"ROTI","name":"Laccha Paratha / Oil (लच्छा पराठा )","desc":"Layered paratha (oil)","price":"₹30","tags":["Paratha","Laccha"],"img":"img/laccha-paratha.jpeg"},
-      {"id":45,"cat":"ROTI","name":"Laccha Paratha / Butter (लच्छा पराठा Butter)","desc":"Layered paratha ","price":"₹40","tags":["Paratha","Laccha"],"img":"img/laccha-paratha.jpeg"},
+      // Chicken (ID 33-58)
+      {"id":33,"cat":"चिकन (Chicken)","name":"चिकन दो प्याजा (Chicken Do Payaza)","price":"₹150","portion":"full","desc":"Chicken curry cooked with onions and rich gravy.","tags":["Chicken"],"img":"img/chicken-do-payaza.jpeg"},
+      {"id":34,"cat":"चिकन (Chicken)","name":"चिकन दो प्याजा (Half)","price":"₹100","portion":"half","desc":"Chicken curry cooked with onions and rich gravy.","tags":["Chicken"],"img":"img/chicken-do-payaza.jpeg"},
+      {"id":35,"cat":"चिकन (Chicken)","name":"चिकन कड़ाही (Chicken Kadhai)","price":"₹250","portion":"full","desc":"Spicy chicken cooked in kadai with Indian masala.","tags":["Chicken"],"img":"img/chicken-kadhai.jpeg"},
+      {"id":36,"cat":"चिकन (Chicken)","name":"चिकन कड़ाही (Half)","price":"₹130","portion":"half","desc":"Spicy chicken cooked in kadai with Indian masala.","tags":["Chicken"],"img":"img/chicken-kadhai.jpeg"},
+      {"id":37,"cat":"चिकन (Chicken)","name":"बटर चिकन (Chicken Butter)","price":"₹240","portion":"full","desc":"Creamy butter chicken with a tomato-based gravy.","tags":["Chicken"],"img":"img/chicken-butter.jpeg"},
+      {"id":38,"cat":"चिकन (Chicken)","name":"बटर चिकन (Half)","price":"₹150","portion":"half","desc":"Creamy butter chicken with a tomato-based gravy.","tags":["Chicken"],"img":"img/chicken-butter.jpeg"},
+      {"id":39,"cat":"चिकन (Chicken)","name":"चिकन कस्सा (Chicken Kassa)","price":"₹200","portion":"full","desc":"Thick and spicy chicken curry with traditional spices.","tags":["Chicken"],"img":"img/chicken-kassa.jpeg"},
+      {"id":40,"cat":"चिकन (Chicken)","name":"चिकन कस्सा (Half)","price":"₹130","portion":"half","desc":"Thick and spicy chicken curry with traditional spices.","tags":["Chicken"],"img":"img/chicken-kassa.jpeg"},
+      {"id":41,"cat":"चिकन (Chicken)","name":"चिकन स्पाइस (Chicken Spice)","price":"₹200","portion":"full","desc":"Hot and spicy chicken cooked with masala blend.","tags":["Chicken"],"img":"img/chicken-spice.jpeg"},
+      {"id":42,"cat":"चिकन (Chicken)","name":"चिकन स्पाइस (Half)","price":"₹130","portion":"half","desc":"Hot and spicy chicken cooked with masala blend.","tags":["Chicken"],"img":"img/chicken-spice.jpeg"},
+      {"id":43,"cat":"चिकन (Chicken)","name":"चिकन ब्लैक पेपर (Chicken Black Paper)","price":"₹200","portion":"full","desc":"Peppery chicken dish rich in flavor and aroma.","tags":["Chicken"],"img":"img/chicken-black-paper.jpeg"},
+      {"id":44,"cat":"चिकन (Chicken)","name":"चिकन ब्लैक पेपर (Half)","price":"₹130","portion":"half","desc":"Peppery chicken dish rich in flavor and aroma.","tags":["Chicken"],"img":"img/chicken-black-paper.jpeg"},
+      {"id":45,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोन) (Chicken Chilli Bone)","price":"₹160","portion":"full","desc":"Boneless chicken chilli tossed with spicy sauce.","tags":["Chicken"],"img":"img/chicken-chilli-b.jpeg"},
+      {"id":46,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोन) (Half)","price":"₹110","portion":"half","desc":"Boneless chicken chilli tossed with spicy sauce.","tags":["Chicken"],"img":"img/chicken-chilli-b.jpeg"},
+      {"id":47,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोनलेस) (Chicken Chilli Bonless)","price":"₹240","portion":"full","desc":"Chicken chilli with boneless and leg pieces mix.","tags":["Chicken"],"img":"img/chicken-chilli-bl.jpeg"},
+      {"id":48,"cat":"चिकन (Chicken)","name":"चिकन चिल्ली (बोनलेस) (Half)","price":"₹130","portion":"half","desc":"Chicken chilli with boneless and leg pieces mix.","tags":["Chicken"],"img":"img/chicken-chilli-bl.jpeg"},
+      {"id":49,"cat":"चिकन (Chicken)","name":"तवा चिकन (Tawa Chicken)","price":"₹200","portion":"full","desc":"Fried chicken cooked with tawa-style masala.","tags":["Chicken"],"img":"img/tawa-chicken.jpeg"},
+      {"id":50,"cat":"चिकन (Chicken)","name":"तवा चिकन (Half)","price":"₹130","portion":"half","desc":"Fried chicken cooked with tawa-style masala.","tags":["Chicken"],"img":"img/tawa-chicken.jpeg"},
+      {"id":51,"cat":"चिकन (Chicken)","name":"कलेजी फ्राय (Kaleji Fry)","price":"₹160","portion":"full","desc":"Fried chicken liver cooked with spicy masala.","tags":["Chicken"],"img":"img/kaleji-fry.jpeg"},
+      {"id":52,"cat":"चिकन (Chicken)","name":"कलेजी फ्राय (Half)","price":"₹110","portion":"half","desc":"Fried chicken liver cooked with spicy masala.","tags":["Chicken"],"img":"img/kaleji-fry.jpeg"},
+      {"id":53,"cat":"चिकन (Chicken)","name":"कलेजी मसाला (Kaleji Masala)","price":"₹200","portion":"full","desc":"Spicy kaleji masala curry with rich gravy.","tags":["Chicken"],"img":"img/kaleji-masala.jpeg"},
+      {"id":54,"cat":"चिकन (Chicken)","name":"कलेजी मसाला (Half)","price":"₹130","portion":"half","desc":"Spicy kaleji masala curry with rich gravy.","tags":["Chicken"],"img":"img/kaleji-masala.jpeg"},
+      {"id":55,"cat":"चिकन (Chicken)","name":"फ्राइड टांगड़ी (Fried Tangri)","price":"₹150","portion":"full","desc":"Juicy fried chicken drumsticks with spicy flavor.","tags":["Chicken"],"img":"img/fried-tangri.jpeg"},
+      {"id":56,"cat":"चिकन (Chicken)","name":"फ्राइड टांगड़ी (Half)","price":"₹100","portion":"half","desc":"Juicy fried chicken drumsticks with spicy flavor.","tags":["Chicken"],"img":"img/fried-tangri.jpeg"},
+      {"id":57,"cat":"चिकन (Chicken)","name":"चिकन लॉलिपॉप (Chicken Lolipop)","price":"₹250","portion":"full","desc":"Crispy chicken lolipops served with spicy chutney.","tags":["Chicken"],"img":"img/chicken-lolipop.jpeg"},
+      {"id":58,"cat":"चिकन (Chicken)","name":"चिकन लॉलिपॉप (Half)","price":"₹160","portion":"half","desc":"Crispy chicken lolipops served with spicy chutney.","tags":["Chicken"],"img":"img/chicken-lolipop.jpeg"},
 
-      // Salad
-      {"id":46,"cat":"SALAD","name":"Sirka Onion (सिरका प्याज)","desc":"Vinegar soaked onions","price":"₹20","tags":["Salad","Sirka"],"img":"img/sirka-onion.jpeg"},
-      {"id":82,"cat":"SALAD","name":"ग्रीन सलाद (Green Salad)","price":"₹80","desc":"Placeholder description.","tags":["Extra"],"img":"img/green-salad.jpeg"},
-      {"id":83,"cat":"SALAD","name":"ओनियन सलाद (Onion Salad)","price":"₹40","desc":"Placeholder description.","tags":["Extra"],"img":"img/onion-salad.jpeg"},
+      // Drinks (ID 59-64)
+      {"id":59,"cat":"ड्रिंक (Drink)","name":"चाय (Tea)","price":"₹25","desc":"Hot and refreshing Indian tea.","tags":["Drink"],"img":"img/tea.jpeg"},
+      {"id":60,"cat":"ड्रिंक (Drink)","name":"कॉफी (Coffee)","price":"₹35","desc":"Freshly brewed coffee with rich aroma.","tags":["Drink"],"img":"img/coffee.jpeg"},
+      {"id":61,"cat":"ड्रिंक (Drink)","name":"लस्सी (Lassi)","price":"₹65","desc":"Refreshing sweet curd-based drink.","tags":["Drink"],"img":"img/lassi.jpeg"},
+      {"id":62,"cat":"ड्रिंक (Drink)","name":"वेज सूप (Veg Soup)","price":"₹80","desc":"Hot vegetable soup full of flavor.","tags":["Drink","Soup"],"img":"img/veg-soup.jpeg"},
+      {"id":63,"cat":"ड्रिंक (Drink)","name":"एग सूप (Egg Soup)","price":"₹105","desc":"Protein-rich egg soup with spices.","tags":["Drink","Soup"],"img":"img/egg-soup.jpeg"},
 
-      // Rice
-      {"id":47,"cat":"RICE","name":"Veg Pulao (वेग पुलाव)","desc":"Fragrant vegetable pulao","price":"₹200","tags":["Rice","Pulao"],"img":"img/veg-pulao.jpeg"},
-      {"id":48,"cat":"RICE","name":"Jeera Rice (जीरा राइस)","desc":"Cumin-flavored rice","price":"₹80","tags":["Rice","Jeera"],"img":"img/jeera-rice.jpeg"},
-      {"id":49,"cat":"RICE","name":"Mushroom Rice (मशरूम राइस)","desc":"Rice cooked with mushrooms","price":"₹175","tags":["Rice","Mushroom"],"img":"img/mushroom-rice.jpeg"},
-      {"id":50,"cat":"RICE","name":"Egg Rice (एग राइस)","desc":"Rice with scrambled eggs","price":"₹125","tags":["Rice","Egg"],"img":"img/egg-rice.jpeg"},
-      {"id":51,"cat":"RICE","name":"Paneer Rice (पनीर राइस)","desc":"Rice with paneer cubes","price":"₹145","tags":["Rice","Paneer"],"img":"img/paneer-rice.jpeg"},
-      {"id":52,"cat":"RICE","name":"Mix Rice (मिक्स राइस)","desc":"Mixed rice with chicken, egg & veggies","price":"₹180","tags":["Rice","Mix"],"img":"img/mix-rice.jpeg"},
+      // Baby Corn (ID 65-67)
+      {"id":65,"cat":"BABY CORN","name":"Baby Corn Chilli (बेबी कॉर्न चिली)","desc":"Spicy baby corn tossed with chillies and sauce","price":"₹150","tags":["Baby Corn","Spicy"],"img":"img/baby-corn-chilli.jpeg"},
+      {"id":66,"cat":"BABY CORN","name":"Baby Corn Crispy (बेबी कॉर्न क्रिस्पी)","desc":"Crispy fried baby corn","price":"₹170","tags":["Baby Corn","Crispy"],"img":"img/baby-corn-crispy.jpeg"},
+      {"id":67,"cat":"BABY CORN","name":"Baby Corn Masala (बेबी कॉर्न मसाला)","desc":"Baby corn cooked in flavorful masala gravy","price":"₹200","tags":["Baby Corn","Masala"],"img":"img/baby-corn-masala.jpeg"},
 
-      // Chowmein
-      {"id":53,"cat":"CHOWMEIN","name":"Paneer Chowmein Half (पनीर चाउमीन हाफ)","desc":"Half portion noodles with paneer pieces","price":"₹90","tags":["Chowmein","Paneer","Half"],"img":"img/paneer-chowmein.jpeg"},
-      {"id":54,"cat":"CHOWMEIN","name":"Paneer Chowmein Full (पनीर चाउमीन फुल)","desc":"Full portion noodles with paneer pieces","price":"₹130","tags":["Chowmein","Paneer","Full"],"img":"img/paneer-chowmein.jpeg"},
-      {"id":55,"cat":"CHOWMEIN","name":"Mushroom Chowmein Half (मशरूम चाउमीन हाफ)","desc":"Half portion noodles with mushrooms","price":"₹110","tags":["Chowmein","Mushroom","Half"],"img":"img/mushroom-chowmein.jpeg"},
-      {"id":56,"cat":"CHOWMEIN","name":"Mushroom Chowmein Full (मशरूम चाउमीन फुल)","desc":"Full portion noodles with mushrooms","price":"₹150","tags":["Chowmein","Mushroom","Full"],"img":"img/mushroom-chowmein.jpeg"},
-      {"id":57,"cat":"CHOWMEIN","name":"Chicken Egg Chowmein Half (चिकन एग चाउमीन हाफ)","desc":"Half portion noodles with chicken and egg","price":"₹40","tags":["Chowmein","Chicken","Egg","Half"],"img":"img/chicken-egg-chowmein.jpeg"},
-      {"id":58,"cat":"CHOWMEIN","name":"Chicken Egg Chowmein Full (चिकन एग चाउमीन फुल)","desc":"Full portion noodles with chicken and egg","price":"₹70","tags":["Chowmein","Chicken","Egg","Full"],"img":"img/chicken-egg-chowmein.jpeg"},
-      {"id":59,"cat":"CHOWMEIN","name":"Kaleji Chowmein (कलेजी चाउमीन)","desc":"Noodles with liver pieces","price":"₹150","tags":["Chowmein","Non-veg"],"img":"img/kaleji-chowmein.jpeg"},
+      // Rolls (ID 68-76)
+      {"id":68,"cat":"ROLL","name":"Chicken Egg Roll (चिकन एग रोल)","desc":"Chicken and egg stuffed roll","price":"₹100","tags":["Roll","Chicken","Egg"],"img":"img/chicken-egg-roll.jpeg"},
+      {"id":69,"cat":"ROLL","name":"Mushroom Roll (मशरूम रोल)","desc":"Mushroom stuffed roll","price":"₹100","tags":["Roll","Mushroom"],"img":"img/mushroom-roll.jpeg"},
+      {"id":70,"cat":"ROLL","name":"एग रोल (Egg Roll)","price":"₹60","desc":"Placeholder description.","tags":["Egg","Roll"],"img":"img/egg-roll.jpeg"},
+      {"id":71,"cat":"ROLL","name":"चिकन रोल (Chicken Roll)","price":"₹80","desc":"Placeholder description.","tags":["Chicken","Roll"],"img":"img/chicken-roll.jpeg"},
+      {"id":72,"cat":"ROLL","name":"चिकन टिक्का रोल (Chicken Tikka Roll)","price":"₹120","desc":"Placeholder description.","tags":["Chicken","Roll"],"img":"img/chicken-tikka-roll.jpeg"},
+      {"id":73,"cat":"ROLL","name":"पनीर रोल (Paneer Roll)","price":"₹110","desc":"Placeholder description.","tags":["Roll","Paneer"],"img":"img/paneer-roll.jpeg"},
+      {"id":74,"cat":"ROLL","name":"वेज रोल (Veg Roll)","price":"₹50","desc":"Placeholder description.","tags":["Roll","Veg"],"img":"img/veg-roll.jpeg"},
+      {"id":75,"cat":"ROLL","name":"पनीर चिल्ली रोल (Paneer Chilli Roll)","price":"₹120","desc":"Placeholder description.","tags":["Roll","Paneer"],"img":"img/paneer-chilli-roll.jpeg"},
+      {"id":76,"cat":"ROLL","name":"मंचूरियन रोल (Manchurian Roll)","price":"₹80","desc":"Placeholder description.","tags":["Roll","Manchurian"],"img":"img/manchurian-roll.jpeg"},
 
-      // Desi Handi Special
-      {"id":60,"cat":"DESI HANDI SPECIAL","name":"Mutton Handi Half (मटन हांडी हाफ)","desc":"Half portion traditional mutton handi","price":"₹650","tags":["Handi","Mutton","Half"],"img":"img/mutton-handi.jpeg"},
-      {"id":61,"cat":"DESI HANDI SPECIAL","name":"Mutton Handi Full (मटन हांडी फुल)","desc":"Full portion traditional mutton handi","price":"₹1200","tags":["Handi","Mutton","Full"],"img":"img/mutton-handi.jpeg"},
-      {"id":62,"cat":"DESI HANDI SPECIAL","name":"Chicken Handi Half (चिकन हांडी हाफ)","desc":"Half portion traditional chicken handi","price":"₹350","tags":["Handi","Chicken","Half"],"img":"img/chicken handi.jpg"},
-      {"id":63,"cat":"DESI HANDI SPECIAL","name":"Chicken Handi Full (चिकन हांडी फुल)","desc":"Full portion traditional chicken handi","price":"₹600","tags":["Handi","Chicken","Full"],"img":"img/chicken handi.jpg"},
+      // Roti (ID 77-81)
+      {"id":77,"cat":"ROTI","name":"Roti (रोटी)","desc":"Plain roti","price":"₹15","tags":["Roti","Bread"],"img":"img/roti.jpeg"},
+      {"id":78,"cat":"ROTI","name":"Paratha (पराठा)","desc":"Plain paratha Oil","price":"₹25","tags":["Paratha","Bread"],"img":"img/paratha.jpeg"},
+      {"id":79,"cat":"ROTI","name":"Paratha / Butter (पराठा Butter )","desc":"Plain paratha (full)","price":"₹30","tags":["Paratha","Bread"],"img":"img/paratha.jpeg"},
+      {"id":80,"cat":"ROTI","name":"Laccha Paratha / Oil (लच्छा पराठा )","desc":"Layered paratha (oil)","price":"₹30","tags":["Paratha","Laccha"],"img":"img/laccha-paratha.jpeg"},
+      {"id":81,"cat":"ROTI","name":"Laccha Paratha / Butter (लच्छा पराठा Butter)","desc":"Layered paratha ","price":"₹40","tags":["Paratha","Laccha"],"img":"img/laccha-paratha.jpeg"},
 
-      // Kabab's
-      {"id":64,"cat":"Kabab's","name":"Atthe Half (अठ्ठे हाफ)","desc":"Half portion special traditional dish","price":"₹900","tags":["Special","Traditional","Half"],"img":"img/atta.jpg"},
-      {"id":65,"cat":"Kabab's","name":"Atthe Full (अठ्ठे फुल)","desc":"Full portion special traditional dish","price":"₹1600","tags":["Special","Traditional","Full"],"img":"img/atta.jpg"},
-      {"id":66,"cat":"Kabab's","name":"तंदूरी Roast (Tandoor Roast - Half)","price":"₹190","desc":"Placeholder description.","tags":["Chicken","Tandoori","Half"],"img":"img/tandoor-chicken.jpeg"},
-      {"id":67,"cat":"Kabab's","name":"तंदूरी Roast (Tandoor Roast - Full)","price":"₹370","desc":"Placeholder description.","tags":["Chicken","Tandoori","Full"],"img":"img/tandoor-chicken.jpeg"},
-      {"id":68,"cat":"Kabab's","name":"टांगड़ी कबाब (Tangdi Kabab - Half)","price":"₹140","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/tangdi-kabab.jpeg"},
-      {"id":69,"cat":"Kabab's","name":"टांगड़ी कबाब (Tangdi Kabab - Full)","price":"₹280","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/tangdi-kabab.jpeg"},
-      {"id":70,"cat":"Kabab's","name":"रेशमी कबाब (Reshmi Kabab - Half)","price":"₹120","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/reshmi-kabab.jpeg"},
-      {"id":71,"cat":"Kabab's","name":"रेशमी कबाब (Reshmi Kabab - Full)","price":"₹230","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/reshmi-kabab.jpeg"},
-      {"id":72,"cat":"Kabab's","name":"टिक्का कबाब (Tikka Kabab - Half)","price":"₹110","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/tikka-kabab.jpeg"},
-      {"id":73,"cat":"Kabab's","name":"टिक्का कबाब (Tikka Kabab - Full)","price":"₹210","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/tikka-kabab.jpeg"},
-      {"id":74,"cat":"Kabab's","name":"हरियाली कबाब (Hariyali Kabab - Half)","price":"₹110","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/hariyali-kabab.jpeg"},
-      {"id":75,"cat":"Kabab's","name":"हरियाली कबाब (Hariyali Kabab - Full)","price":"₹210","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/hariyali-kabab.jpeg"},
+      // Salad (ID 82-84)
+      {"id":82,"cat":"SALAD","name":"Sirka Onion (सिरका प्याज)","desc":"Vinegar soaked onions","price":"₹20","tags":["Salad","Sirka"],"img":"img/sirka-onion.jpeg"},
+      {"id":83,"cat":"SALAD","name":"ग्रीन सलाद (Green Salad)","price":"₹80","desc":"Placeholder description.","tags":["Extra"],"img":"img/green-salad.jpeg"},
+      {"id":84,"cat":"SALAD","name":"ओनियन सलाद (Onion Salad)","price":"₹40","desc":"Placeholder description.","tags":["Extra"],"img":"img/onion-salad.jpeg"},
 
-      // Veg Starter
-      {"id":76,"cat":"Veg Starter","name":"Onion Pakoda (प्याज पकोड़ा)","desc":"Crispy onion fritters","price":"₹100 (5 pcs)","tags":["Pakoda","Snack"],"img":"img/onion-pakoda.jpeg"},
-      {"id":77,"cat":"Veg Starter","name":"Chana Dal Pak (चना दाल पक)","desc":"Crispy chana dal fritters","price":"₹110 (5 pcs)","tags":["Pakoda","Chana Dal"],"img":"img/chana dal pakoda.jpg"},
-      {"id":78,"cat":"Veg Starter","name":"Chana Fry (चना फ्राई)","desc":"Fried spicy chana","price":"₹100","tags":["Snack","Chana"],"img":"img/chana-fry.jpeg"},
+      // Rice (ID 85-90)
+      {"id":85,"cat":"RICE","name":"Veg Pulao (वेग पुलाव)","desc":"Fragrant vegetable pulao","price":"₹200","tags":["Rice","Pulao"],"img":"img/veg-pulao.jpeg"},
+      {"id":86,"cat":"RICE","name":"Jeera Rice (जीरा राइस)","desc":"Cumin-flavored rice","price":"₹80","tags":["Rice","Jeera"],"img":"img/jeera-rice.jpeg"},
+      {"id":87,"cat":"RICE","name":"Mushroom Rice (मशरूम राइस)","desc":"Rice cooked with mushrooms","price":"₹175","tags":["Rice","Mushroom"],"img":"img/mushroom-rice.jpeg"},
+      {"id":88,"cat":"RICE","name":"Egg Rice (एग राइस)","desc":"Rice with scrambled eggs","price":"₹125","tags":["Rice","Egg"],"img":"img/egg-rice.jpeg"},
+      {"id":89,"cat":"RICE","name":"Paneer Rice (पनीर राइस)","desc":"Rice with paneer cubes","price":"₹145","tags":["Rice","Paneer"],"img":"img/paneer-rice.jpeg"},
+      {"id":90,"cat":"RICE","name":"Mix Rice (मिक्स राइस)","desc":"Mixed rice with chicken, egg & veggies","price":"₹180","tags":["Rice","Mix"],"img":"img/mix-rice.jpeg"},
 
-      // Extra
-      {"id":79,"cat":"Extra","name":"Papad Roasted (पापड़ रोस्टेड)","desc":"Crispy roasted papad","price":"₹10","tags":["Papad","Roasted"],"img":"img/papad-roasted.jpeg"},
-      {"id":80,"cat":"Extra","name":"Papad Fry (पापड़ फ्राई)","desc":"Fried papad","price":"₹15","tags":["Papad","Fried"],"img":"img/papad-fry.jpeg"},
-      {"id":81,"cat":"Extra","name":"रायता (Raita)","price":"₹80","desc":"Placeholder description.","tags":["Extra"],"img":"img/raita.jpeg"},
-      
-      {"id":84,"cat":"Extra","name":"Spicy Masala corn chaat","price":"₹50","desc":"spicy masala corn chaat","tags":["Extra"],"img":"img/5.jpg"},
+      // Chowmein (ID 91-97)
+      {"id":91,"cat":"CHOWMEIN","name":"Paneer Chowmein Half (पनीर चाउमीन हाफ)","desc":"Half portion noodles with paneer pieces","price":"₹90","tags":["Chowmein","Paneer","Half"],"img":"img/paneer-chowmein.jpeg"},
+      {"id":92,"cat":"CHOWMEIN","name":"Paneer Chowmein Full (पनीर चाउमीन फुल)","desc":"Full portion noodles with paneer pieces","price":"₹130","tags":["Chowmein","Paneer","Full"],"img":"img/paneer-chowmein.jpeg"},
+      {"id":93,"cat":"CHOWMEIN","name":"Mushroom Chowmein Half (मशरूम चाउमीन हाफ)","desc":"Half portion noodles with mushrooms","price":"₹110","tags":["Chowmein","Mushroom","Half"],"img":"img/mushroom-chowmein.jpeg"},
+      {"id":94,"cat":"CHOWMEIN","name":"Mushroom Chowmein Full (मशरूम चाउमीन फुल)","desc":"Full portion noodles with mushrooms","price":"₹150","tags":["Chowmein","Mushroom","Full"],"img":"img/mushroom-chowmein.jpeg"},
+      {"id":95,"cat":"CHOWMEIN","name":"Chicken Egg Chowmein Half (चिकन एग चाउमीन हाफ)","desc":"Half portion noodles with chicken and egg","price":"₹40","tags":["Chowmein","Chicken","Egg","Half"],"img":"img/chicken-egg-chowmein.jpeg"},
+      {"id":96,"cat":"CHOWMEIN","name":"Chicken Egg Chowmein Full (चिकन एग चाउमीन फुल)","desc":"Full portion noodles with chicken and egg","price":"₹70","tags":["Chowmein","Chicken","Egg","Full"],"img":"img/chicken-egg-chowmein.jpeg"},
+      {"id":97,"cat":"CHOWMEIN","name":"Kaleji Chowmein (कलेजी चाउमीन)","desc":"Noodles with liver pieces","price":"₹150","tags":["Chowmein","Non-veg"],"img":"img/kaleji-chowmein.jpeg"},
 
-      // Breakfast
-      {"id":85,"cat":"ब्रेकफास्ट (Breakfast)","name":"पोहा / Poha","price":"₹50","desc":"Delicious and light breakfast poha made with onions and peanuts.","tags":["Breakfast","Veg"],"img":"img/poha.jpeg"},
-      {"id":86,"cat":"ब्रेकफास्ट (Breakfast)","name":"पुरी सब्जी / Puri Sabji","price":"₹7 per piece","desc":"Crispy puris served with tasty vegetable curry.","tags":["Breakfast","Veg"],"img":"img/puri-sabji.jpeg"},
-      {"id":87,"cat":"ब्रेकफास्ट (Breakfast)","name":"ब्रेड ऑमलेट / Bread Omelette","price":"₹30","desc":"Toasted bread served with a fluffy omelette.","tags":["Breakfast","Egg"],"img":"img/bread-omelette.jpeg"},
-      {"id":88,"cat":"ब्रेकफास्ट (Breakfast)","name":"ऑमलेट / Omelette","price":"₹25","desc":"Soft and fresh omelette prepared with eggs and mild spices.","tags":["Breakfast","Egg"],"img":"img/omelette.jpeg"},
-      {"id":89,"cat":"ब्रेकफास्ट (Breakfast)","name":"ब्रेड बटर / Bread Butter","price":"₹30","desc":"Toasted bread generously spread with butter.","tags":["Breakfast","Veg"],"img":"img/bread-butter.jpeg"},
-      {"id":90,"cat":"ब्रेकफास्ट (Breakfast)","name":"ब्रेड जॅम / Bread Jam","price":"₹30","desc":"Toasted bread served with sweet fruit jam.","tags":["Breakfast","Veg"],"img":"img/bread-jam.jpeg"},
-      {"id":91,"cat":"ब्रेकफास्ट (Breakfast)","name":"क्लब कचोरी / Club Kachori","price":"₹10 per piece","desc":"Mini stuffed kachoris served hot with aloo sabji.","tags":["Breakfast","Veg"],"img":"img/club-kachori.jpeg"},
-      {"id":92,"cat":"ब्रेकफास्ट (Breakfast)","name":"समोसा / Samosa","price":"₹8 per piece","desc":"Crispy fried samosa filled with spicy potato mixture.","tags":["Breakfast","Veg","Snacks"],"img":"img/samosa.jpeg"},
+      // Desi Handi Special (ID 98-101)
+      {"id":98,"cat":"DESI HANDI SPECIAL","name":"Mutton Handi Half (मटन हांडी हाफ)","desc":"Half portion traditional mutton handi","price":"₹650","tags":["Handi","Mutton","Half"],"img":"img/mutton-handi.jpeg"},
+      {"id":99,"cat":"DESI HANDI SPECIAL","name":"Mutton Handi Full (मटन हांडी फुल)","desc":"Full portion traditional mutton handi","price":"₹1200","tags":["Handi","Mutton","Full"],"img":"img/mutton-handi.jpeg"},
+      {"id":100,"cat":"DESI HANDI SPECIAL","name":"Chicken Handi Half (चिकन हांडी हाफ)","desc":"Half portion traditional chicken handi","price":"₹350","tags":["Handi","Chicken","Half"],"img":"img/chicken handi.jpg"},
+      {"id":101,"cat":"DESI HANDI SPECIAL","name":"Chicken Handi Full (चिकन हांडी फुल)","desc":"Full portion traditional chicken handi","price":"₹600","tags":["Handi","Chicken","Full"],"img":"img/chicken handi.jpg"},
 
-      // Momos
-      {"id":93,"cat":"मोमोज (Momos)","name":"पनीर मोमो / Paneer Momo","price":"₹-","desc":"Soft momos stuffed with spiced paneer filling.","tags":["Veg","Snacks"],"img":"img/paneer-momo.jpeg"},
-      {"id":94,"cat":"मोमोज (Momos)","name":"वेज मोमो / Veg Momo","price":"₹-","desc":"Steamed momos filled with vegetables and spices.","tags":["Veg","Snacks"],"img":"img/veg-momo.jpeg"},
-      {"id":95,"cat":"मोमोज (Momos)","name":"चिकन मोमो / Chicken Momo","price":"₹-","desc":"Juicy chicken momos served with spicy chutney.","tags":["Non-Veg","Snacks"],"img":"img/chicken-momo.jpeg"},
-      {"id":95,"cat":"मोमोज (Momos)","name":"मोमो फ्राय / Momo Fry","price":"₹-","desc":"Juicy chicken momos served with spicy chutney.","tags":["Non-Veg","Snacks"],"img":"img/momo-fry.jpeg"},
+      // Kabab's (ID 102-113)
+      {"id":102,"cat":"Kabab's","name":"Atthe Half (अठ्ठे हाफ)","desc":"Half portion special traditional dish","price":"₹900","tags":["Special","Traditional","Half"],"img":"img/atta.jpg"},
+      {"id":103,"cat":"Kabab's","name":"Atthe Full (अठ्ठे फुल)","desc":"Full portion special traditional dish","price":"₹1600","tags":["Special","Traditional","Full"],"img":"img/atta.jpg"},
+      {"id":104,"cat":"Kabab's","name":"तंदूरी Roast (Tandoor Roast - Half)","price":"₹190","desc":"Placeholder description.","tags":["Chicken","Tandoori","Half"],"img":"img/tandoor-chicken.jpeg"},
+      {"id":105,"cat":"Kabab's","name":"तंदूरी Roast (Tandoor Roast - Full)","price":"₹370","desc":"Placeholder description.","tags":["Chicken","Tandoori","Full"],"img":"img/tandoor-chicken.jpeg"},
+      {"id":106,"cat":"Kabab's","name":"टांगड़ी कबाब (Tangdi Kabab - Half)","price":"₹140","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/tangdi-kabab.jpeg"},
+      {"id":107,"cat":"Kabab's","name":"टांगड़ी कबाब (Tangdi Kabab - Full)","price":"₹280","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/tangdi-kabab.jpeg"},
+      {"id":108,"cat":"Kabab's","name":"रेशमी कबाब (Reshmi Kabab - Half)","price":"₹120","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/reshmi-kabab.jpeg"},
+      {"id":109,"cat":"Kabab's","name":"रेशमी कबाब (Reshmi Kabab - Full)","price":"₹230","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/reshmi-kabab.jpeg"},
+      {"id":110,"cat":"Kabab's","name":"टिक्का कबाब (Tikka Kabab - Half)","price":"₹110","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/tikka-kabab.jpeg"},
+      {"id":111,"cat":"Kabab's","name":"टिक्का कबाब (Tikka Kabab - Full)","price":"₹210","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/tikka-kabab.jpeg"},
+      {"id":112,"cat":"Kabab's","name":"हरियाली कबाब (Hariyali Kabab - Half)","price":"₹110","desc":"Placeholder description.","tags":["Chicken","Kabab","Half"],"img":"img/hariyali-kabab.jpeg"},
+      {"id":113,"cat":"Kabab's","name":"हरियाली कबाब (Hariyali Kabab - Full)","price":"₹210","desc":"Placeholder description.","tags":["Chicken","Kabab","Full"],"img":"img/hariyali-kabab.jpeg"},
 
+      // Veg Starter (ID 114-116)
+      {"id":114,"cat":"Veg Starter","name":"Onion Pakoda (प्याज पकोड़ा)","desc":"Crispy onion fritters","price":"₹100 (5 pcs)","tags":["Pakoda","Snack"],"img":"img/onion-pakoda.jpeg"},
+      {"id":115,"cat":"Veg Starter","name":"Chana Dal Pak (चना दाल पक)","desc":"Crispy chana dal fritters","price":"₹110 (5 pcs)","tags":["Pakoda","Chana Dal"],"img":"img/chana dal pakoda.jpg"},
+      {"id":116,"cat":"Veg Starter","name":"Chana Fry (चना फ्राई)","desc":"Fried spicy chana","price":"₹100","tags":["Snack","Chana"],"img":"img/chana-fry.jpeg"},
+
+      // Extra (ID 117-119)
+      {"id":117,"cat":"Extra","name":"रायता (Raita)","price":"₹80","desc":"Placeholder description.","tags":["Extra"],"img":"img/raita.jpeg"},
+
+      // Momos (ID 120-123)
+      {"id":120,"cat":"मोमोज (Momos)","name":"पनीर मोमो / Paneer Momo","price":"₹-","desc":"Soft momos stuffed with spiced paneer filling.","tags":["Veg","Snacks"],"img":"img/paneer-momo.jpeg"},
+      {"id":121,"cat":"मोमोज (Momos)","name":"वेज मोमो / Veg Momo","price":"₹-","desc":"Steamed momos filled with vegetables and spices.","tags":["Veg","Snacks"],"img":"img/veg-momo.jpeg"},
+      {"id":122,"cat":"मोमोज (Momos)","name":"चिकन मोमो / Chicken Momo","price":"₹-","desc":"Juicy chicken momos served with spicy chutney.","tags":["Non-Veg","Snacks"],"img":"img/chicken-momo.jpeg"},
+      {"id":123,"cat":"मोमोज (Momos)","name":"मोमो फ्राय / Momo Fry","price":"₹-","desc":"Juicy chicken momos served with spicy chutney.","tags":["Non-Veg","Snacks"],"img":"img/momo-fry.jpeg"}
     ];
+
     // Cart functionality
     let cart = [];
     const cartButton = document.getElementById('cartButton');
@@ -1368,14 +1351,3 @@ body::before {
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
