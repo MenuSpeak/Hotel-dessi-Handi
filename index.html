@@ -171,6 +171,7 @@
       cursor: pointer;
       white-space: nowrap;
       flex-shrink: 0;
+      position: relative;
     }
 
     .tab.active {
@@ -178,6 +179,22 @@
       color: #0b0b0d;
       border: none;
       box-shadow: 0 8px 30px rgba(212, 175, 55, 0.12);
+    }
+
+    /* Student discount badge */
+    .student-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+      z-index: 1;
+      white-space: nowrap;
     }
 
     /* Menu Grid */
@@ -780,6 +797,19 @@
       border-radius: 8px; /* make corners slightly round */
     }
 
+    /* Student discount note */
+    .student-discount-note {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #ffd700;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+    }
+
     /* Tablet and Desktop Styles */
     @media (min-width: 768px) {
       body {
@@ -903,10 +933,10 @@
             <button class="tab" data-cat="बर्गर (Burger)">बर्गर (Burger)</button>
             <button class="tab" data-cat="पराठा (Paratha)">पराठा (Paratha)</button>
             <button class="tab" data-cat="कॉम्बो (Combo)">कॉम्बो (Combo)</button>
-            <button class="tab" data-cat="Students">Students</button>
-            
-            
-
+            <button class="tab" data-cat="Students">
+              Students
+              <span class="student-badge">10% OFF</span>
+            </button>
           </div>
         </div>
       </div>
@@ -1177,7 +1207,12 @@
   {"id":170, "cat":"पनीर (Paneer)", "name":"पनीर चिल्ली ड्राई हाफ (Paneer Chilli Dry Half)", "price":"₹100", "desc":"Dry style paneer chilli without gravy.", "tags":["Veg","Paneer","Chinese"], "img":"img/paneer-chilli-dry.jpeg"},
   {"id":171, "cat":"पनीर (Paneer)", "name":"पनीर चिल्ली ड्राई फुल (Paneer Chilli Dry Full)", "price":"₹180", "desc":"Dry style paneer chilli without gravy.", "tags":["Veg","Paneer","Chinese"], "img":"img/paneer-chilli-dry.jpeg"},
   {"id":172, "cat":"पनीर (Paneer)", "name":"पनीर पकोड़ा हाफ (Paneer Pakoda Half)", "price":"₹110", "desc":"Deep fried paneer fritters.", "tags":["Veg","Paneer","Snack"], "img":"img/paneer-pakoda.jpeg"},
-  {"id":173, "cat":"पनीर (Paneer)", "name":"पनीर पकोड़ा फुल (Paneer Pakoda Full)", "price":"₹210", "desc":"Deep fried paneer fritters.", "tags":["Veg","Paneer","Snack"], "img":"img/paneer-pakoda.jpeg"}
+  {"id":173, "cat":"पनीर (Paneer)", "name":"पनीर पकोड़ा फुल (Paneer Pakoda Full)", "price":"₹210", "desc":"Deep fried paneer fritters.", "tags":["Veg","Paneer","Snack"], "img":"img/paneer-pakoda.jpeg"},
+
+      // Students category (ID 174-176)
+      {"id":174,"cat":"Students","name":"Student Special Meal 1","price":"₹180","desc":"Special meal for students with rice, curry, and a drink.","tags":["Student","Special","Veg"],"img":"img/student-special-1.jpeg"},
+      {"id":175,"cat":"Students","name":"Student Special Meal 2","price":"₹220","desc":"Special meal for students with chicken curry, rice, and a drink.","tags":["Student","Special","Non-Veg"],"img":"img/student-special-2.jpeg"},
+      {"id":176,"cat":"Students","name":"Student Combo Deal","price":"₹250","desc":"Complete student combo with starter, main course, and dessert.","tags":["Student","Combo"],"img":"img/student-combo.jpeg"}
 
     ];
 
@@ -1348,26 +1383,32 @@
         return;
       }
       
-      menuGrid.innerHTML = items.map(item => `
-        <div class="card" data-cat="${item.cat}">
-          <div class="card-header">
-            <div class="thumb">
-              <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+CjxwYXRoIGQ9Ik03MCA4MEgxMTBNODAgNzBWOTBNNjUgOTVIMTA1TTk1IDY1VjEwNU02NSA2NVYxMDVNNzUgNzVIOThNNzUgODVIOThNNzUgOTVIOThNNzUgMTA1SDk4TTY1IDc1SDcyTTY1IDg1SDcyTTY1IDk1SDcyTTY1IDEwNUg3Mk0xMDggNzVIMTE1TTEwOCA4NUgxMTVNMTA4IDk1SDExNU0xMDggMTA1SDExNSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
-            </div>
-            <div class="card-info">
-              <h3 class="dish">${item.name}</h3>
-              <p class="desc">${item.desc}</p>
-              <div class="tags">
-                ${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}
+      menuGrid.innerHTML = items.map(item => {
+        // Check if the item is in the Students category
+        const isStudentItem = item.cat === "Students";
+        
+        return `
+          <div class="card" data-cat="${item.cat}">
+            <div class="card-header">
+              <div class="thumb">
+                <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+CjxwYXRoIGQ9Ik03MCA4MEgxMTBNODAgNzBWOTBNNjUgOTVIMTA1TTk1IDY1VjEwNU02NSA2NVYxMDVNNzUgNzVIOThNNzUgODVIOThNNzUgOTVIOThNNzUgMTA1SDk4TTY1IDc1SDcyTTY1IDg1SDcyTTY1IDk1SDcyTTY1IDEwNUg3Mk0xMDggNzVIMTE1TTEwOCA4NUgxMTVNMTA4IDk1SDExNU0xMDggMTA1SDExNSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
+              </div>
+              <div class="card-info">
+                <h3 class="dish">${item.name}</h3>
+                <p class="desc">${item.desc}</p>
+                ${isStudentItem ? '<div class="student-discount-note">Note: Extra 10% off for students / नोट: छात्रों के लिए अतिरिक्त 10% छूट</div>' : ''}
+                <div class="tags">
+                  ${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}
+                </div>
               </div>
             </div>
+            <div class="card-footer">
+              <div class="price">${item.price}</div>
+              <button class="btn-primary" onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')}, this)">Add to Cart</button>
+            </div>
           </div>
-          <div class="card-footer">
-            <div class="price">${item.price}</div>
-            <button class="btn-primary" onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')}, this)">Add to Cart</button>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     // Filter menu items by category
@@ -1377,6 +1418,15 @@
       } else {
         const filteredItems = data.filter(item => item.cat === category);
         renderMenuItems(filteredItems);
+        
+        // Show student discount note when Students category is selected
+        if (category === 'Students') {
+          const menuGrid = document.getElementById('menuGrid');
+          const discountNote = document.createElement('div');
+          discountNote.className = 'student-discount-note';
+          discountNote.innerHTML = 'Note: Extra 10% off for students / नोट: छात्रों के लिए अतिरिक्त 10% छूट';
+          menuGrid.insertBefore(discountNote, menuGrid.firstChild);
+        }
       }
     }
 
@@ -1416,7 +1466,3 @@
   </script>
 </body>
 </html>
-
-
-
-
