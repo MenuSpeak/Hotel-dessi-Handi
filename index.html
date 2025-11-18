@@ -933,6 +933,8 @@ Per packing 10rs extra
             <button class="tab" data-cat="BABY CORN">Baby Corn</button>
             <button class="tab" data-cat="ROLL">Roll</button>
             <button class="tab" data-cat="ROTI">Roti</button>
+            <button class="tab" data-cat="Biryani">Biryani</button>
+
             <button class="tab" data-cat="SALAD">Salad</button>
             <button class="tab" data-cat="RICE">Rice</button>
             <button class="tab" data-cat="पनीर (Paneer)">पनीर (Paneer)</button>
@@ -950,6 +952,7 @@ Per packing 10rs extra
             <button class="tab" data-cat="पराठा (Paratha)">पराठा (Paratha)</button>
             <button class="tab" data-cat="कॉम्बो (Combo)">कॉम्बो (Combo)</button>
             <button class="tab" data-cat="Students">
+            <button class="tab" data-cat="heavy">
               Students
               <span class="student-badge">10% OFF</span>
             </button>
@@ -1114,6 +1117,23 @@ Per packing 10rs extra
 
       // Roti (ID 77-81)
       {"id":77,"cat":"ROTI","name":"Roti (रोटी)","desc":"Plain roti","price":"₹15","tags":["Roti","Bread"],"img":"img/roti.jpeg"},
+
+{"id":301, "cat":"Biryani", "name":"चिकन बिरयानी हाफ (Chicken Biryani Half)", "price":"₹100", "desc":"Spicy and flavorful chicken biryani (Half).", "tags":["Biryani","Non-Veg"], "img":"img/chicken-biryani-half.jpg"},
+
+{"id":302, "cat":"Biryani", "name":"चिकन बिरयानी फुल (Chicken Biryani Full)", "price":"₹180", "desc":"Spicy and flavorful chicken biryani (Full).", "tags":["Biryani","Non-Veg"], "img":"img/chicken-biryani-half.jpg"},
+
+{"id":303, "cat":"Biryani", "name":"एग बिरयानी हाफ (Egg Biryani Half)", "price":"₹60", "desc":"Egg biryani with rich spices (Half).", "tags":["Biryani","Egg"], "img":"img/egg-biryani-half.jpg"},
+
+{"id":304, "cat":"Biryani", "name":"एग बिरयानी फुल (Egg Biryani Full)", "price":"₹100", "desc":"Egg biryani with rich spices (Full).", "tags":["Biryani","Egg"], "img":"img/egg-biryani-half.jpg"},
+
+{"id":305, "cat":"Biryani", "name":"बिरयानी राइस हाफ (Biryani Rice Half)", "price":"₹50", "desc":"Plain biryani rice with light spices (Half).", "tags":["Biryani","Veg"], "img":"img/biryani-rice-half.jpg"},
+
+{"id":306, "cat":"Biryani", "name":"बिरयानी राइस फुल (Biryani Rice Full)", "price":"₹90", "desc":"Plain biryani rice with light spices (Full).", "tags":["Biryani","Veg"], "img":"img/biryani-rice-half.jpg"},
+
+{"id":307, "cat":"Biryani", "name":"वेग बिरयानी हाफ (Veg Biryani Half)", "price":"₹70", "desc":"Delicious vegetable biryani (Half).", "tags":["Biryani","Veg"], "img":"img/veg-biryani-half.jpg"},
+
+{"id":308, "cat":"Biryani", "name":"वेग बिरयानी फुल (Veg Biryani Full)", "price":"₹120", "desc":"Delicious vegetable biryani (Full).", "tags":["Biryani","Veg"], "img":"img/veg-biryani-half.jpg"}
+
       
       // Salad (ID 82-84)
       {"id":82,"cat":"SALAD","name":"Sirka Onion (सिरका प्याज)","desc":"Vinegar soaked onions","price":"₹20","tags":["Salad","Sirka"],"img":"img/sirka-onion.jpeg"},
@@ -1236,8 +1256,8 @@ Per packing 10rs extra
   {"id":173, "cat":"पनीर (Paneer)", "name":"पनीर पकोड़ा फुल (Paneer Pakoda Full)", "price":"₹210", "desc":"Deep fried paneer fritters.", "tags":["Veg","Paneer","Snack"], "img":"img/paneer-pakoda.jpeg"},
 
       // Students category (ID 174-176)
-      {"id":174,"cat":"Students","name":"Student Special Meal 1","price":"₹-","desc":"Special meal for students with rice, curry, and a drink.","tags":["Student","Special","Veg"],"img":"img/student-special-1.jpg"},
-      // {"id":175,"cat":"Students","name":"Student Special Meal 2","price":"₹220","desc":"Special meal for students with chicken curry, rice, and a drink.","tags":["Student","Special","Non-Veg"],"img":"img/student-special-2.jpeg"},
+      {"id":174,"cat":"Students","name":"Student Special Meal 1","price":"₹-","desc":"Minimum 200rs purchesed required for 10% off","tags":["Student","Special","Veg"],"img":"img/student-special-1.jpg"},
+      {"id":175,"cat":"heavy","name":"Get Heavy Discount to Follow Instagram","price":"","desc":"Special for Get Heavy Discount to Follo Instagram.","tags":["Heavy","Loot",],"img":"img/qrd.jpg"},
       // {"id":176,"cat":"Students","name":"Student Combo Deal","price":"₹250","desc":"Complete student combo with starter, main course, and dessert.","tags":["Student","Combo"],"img":"img/student-combo.jpeg"}
 
     ];
@@ -1492,6 +1512,7 @@ Per packing 10rs extra
   </script>
 </body>
 </html>
+
 
 
 
